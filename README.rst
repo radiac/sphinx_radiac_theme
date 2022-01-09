@@ -1,74 +1,124 @@
-**************************
-Read the Docs Sphinx Theme
-**************************
+***********************
+Radiac.net Sphinx Theme
+***********************
 
-.. image:: https://img.shields.io/pypi/v/sphinx_rtd_theme.svg
-   :target: https://pypi.python.org/pypi/sphinx_rtd_theme
-   :alt: Pypi Version
-.. image:: https://circleci.com/gh/readthedocs/sphinx_rtd_theme.svg?style=svg
-   :alt: Build Status
-   :target: https://circleci.com/gh/readthedocs/sphinx_rtd_theme
-.. image:: https://img.shields.io/pypi/l/sphinx_rtd_theme.svg
-   :target: https://pypi.python.org/pypi/sphinx_rtd_theme/
-   :alt: License
-.. image:: https://readthedocs.org/projects/sphinx-rtd-theme/badge/?version=latest
-  :target: http://sphinx-rtd-theme.readthedocs.io/en/latest/?badge=latest
-  :alt: Documentation Status
+This Sphinx theme is a fork of the official `Read the Docs`_ theme, which adds:
 
-This Sphinx_ theme was designed to provide a great reader experience for
-documentation users on both desktop and mobile devices. This theme is used
-primarily on `Read the Docs`_ but can work with any Sphinx project. You can find
-a working demo of the theme in the `theme documentation`_
+* radiac.net colour scheme
+* Top nav
 
-.. _Sphinx: http://www.sphinx-doc.org
 .. _Read the Docs: http://www.readthedocs.org
-.. _theme documentation: https://sphinx-rtd-theme.readthedocs.io/en/stable/
 
-Installation
-============
 
-This theme is distributed on PyPI_ and can be installed with ``pip``:
-
-.. code:: console
-
-   $ pip install sphinx-rtd-theme
-
-To use the theme in your Sphinx project, you will need to edit
-your ``conf.py`` file's ``html_theme`` setting:
-
-.. code:: python
-
-    html_theme = "sphinx_rtd_theme"
-
-.. admonition:: See also:
-
-    `Supported browsers`_
-        Officially supported and tested browser/operating system combinations
-
-    `Supported dependencies`_
-        Supported versions of Python, Sphinx, and other dependencies.
-
-    `Example documentation`_
-        A full example of this theme output, with localized strings enabled.
-
-.. _PyPI: https://pypi.python.org/pypi/sphinx_rtd_theme
-.. _Supported browsers: https://sphinx-rtd-theme.readthedocs.io/en/stable/development.html#supported-browsers
-.. _Supported dependencies: https://sphinx-rtd-theme.readthedocs.io/en/stable/development.html#supported-dependencies
-.. _Example documentation:  https://sphinx-rtd-theme.readthedocs.io/en/stable/
-
-Configuration
+Using in docs
 =============
 
-This theme is highly customizable on both the page level and on a global level.
-To see all the possible configuration options, read the documentation on
-`configuring the theme`_.
+Install::
 
-.. _configuring the theme: https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html
+    pip install -e https://github.com/radiac/sphinx_radiac_theme.git
 
-Contributing
-============
+Add to ``conf.py``::
 
-If you would like to help modify or translate the theme, you'll find more
-information on contributing in our `contributing guide`_.
+    import sphinx_radiac_theme
+    extensions = [
+        ...
+        'sphinx_radiac_theme',
+    ]
+    html_theme = "sphinx_radiac_theme"
 
-.. _contributing guide: https://sphinx-rtd-theme.readthedocs.io/en/stable/contributing.html
+Optional settings for ``conf.py``::
+
+    html_theme_options = {
+      "radiac_project": "projectname",
+      "radiac_options": [
+
+      ],
+    }
+
+
+Developing
+==========
+
+#. Check out the project from git
+#. Update ``conf.py`` as above, but add::
+
+      html_theme_path = ["/path/to/sphinx_radiac_theme"]
+
+#. Watch static and open the demo site in a browser::
+
+      nvm install
+      nvm use
+      npm run dev
+
+The upstream project does not currently use black, so take care to not apply
+auto-formatting to files which originate upstream.
+
+
+Releasing a new version
+-----------------------
+
+#. Build static::
+
+      npm run build
+
+#. Update the fork number in the version string in ``setup.py`` and
+   ``sphinx_radiac_theme/__init__.py``
+
+#. Commit and push to ``master``.
+
+This project is not on pypi.
+
+
+Merging from upstream
+---------------------
+
+#.  Pull into new branch::
+
+      git remote add upstream https://github.com/readthedocs/sphinx_rtd_theme.git
+      git fetch upstream
+      git checkout master
+      git pull
+      git checkout -b merge-upstream
+      git merge upstream/master
+
+#.  Resolve any conflicts (ignoring ``sphinx_radiac_theme/static`` - we'll rebuild
+    that). In particular, check for changes in these files:
+
+    * ``README.rst`` - keep our version
+    * ``setup.*``, ``MANIFEST.in`` - check for new ``sphinx_rtd_theme``
+    * ``setup.py`` - update version (add ``.fork0`` to upstream)
+    * ``sphinx_radiac_theme/__init__.py`` - update version and check theme name is
+      ``sphinx_radiac_theme``
+    * ``src/sass/theme.sass`` - make sure ``theme_variables`` is followed by
+      ``radiac_variables`` and ``radiac_styles`` is at the bottom
+    * ``sphinx_rtd_theme/*`` - move files over to ``sphinx_radiac_theme``
+
+    Test with::
+
+        npm install
+        npm run dev
+
+#.  Rebuild and push::
+
+        npm run build
+        git add .
+        git commit
+        git checkout master
+        git merge merge-upstream
+        git branch -d merge-upstream
+        git push
+
+
+More information
+================
+
+See original documentation for:
+
+* Installing_
+* Configuring_
+* Contributing_
+
+.. _Read the Docs: https://sphinx-rtd-theme.readthedocs.io/en/latest/
+.. _Installing: https://sphinx-rtd-theme.readthedocs.io/en/latest/installing.html
+.. _Configuring: https://sphinx-rtd-theme.readthedocs.io/en/latest/configuring.html
+.. _Contributing: https://sphinx-rtd-theme.readthedocs.io/en/latest/contributing.html

@@ -268,7 +268,7 @@ New Features
 * Add option to style external links
 * Add github, gitlab, bitbucket page arguments option
 * Add pygments support
-* Add setuptools entry point allowing to use ``sphinx_rtd_theme`` as
+* Add setuptools entry point allowing to use ``sphinx_radiac_theme`` as
   Sphinx ``html_theme`` directly.
 * Add language to the JS output variable
 
@@ -346,7 +346,7 @@ Other Changes
 * Fixed modernizr URL
 * Small display style changes on code blocks, figure captions, and nav elements
 
-.. _#215: https://github.com/rtfd/sphinx_rtd_theme/pull/215
+.. _#215: https://github.com/rtfd/sphinx_radiac_theme/pull/215
 
 0.1.8
 =====

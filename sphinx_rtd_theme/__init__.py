@@ -34,18 +34,18 @@ def config_initiated(app, config):
 # See http://www.sphinx-doc.org/en/stable/theming.html#distribute-your-theme-as-a-python-package
 def setup(app):
     if python_version[0] < 3:
-        logger.warning("Python 2 is deprecated with sphinx_rtd_theme, update to Python 3")
+        logger.warning("Python 2 is deprecated with sphinx_radiac_theme, update to Python 3")
     app.require_sphinx('1.6')
     if sphinx_version <= (2, 0, 0):
-        logger.warning("Sphinx 1.x is deprecated with sphinx_rtd_theme, update to Sphinx 2.x or greater")
+        logger.warning("Sphinx 1.x is deprecated with sphinx_radiac_theme, update to Sphinx 2.x or greater")
         if not app.config.html_experimental_html5_writer:
-            logger.warning("'html4_writer' is deprecated with sphinx_rtd_theme")
+            logger.warning("'html4_writer' is deprecated with sphinx_radiac_theme")
     else:
         if app.config.html4_writer:
-            logger.warning("'html4_writer' is deprecated with sphinx_rtd_theme")
+            logger.warning("'html4_writer' is deprecated with sphinx_radiac_theme")
 
     # Register the theme that can be referenced without adding a theme path
-    app.add_html_theme('sphinx_rtd_theme', path.abspath(path.dirname(__file__)))
+    app.add_html_theme('sphinx_radiac_theme', path.abspath(path.dirname(__file__)))
 
     if sphinx_version >= (1, 8, 0):
         # Add Sphinx message catalog for newer versions of Sphinx

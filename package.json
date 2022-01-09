@@ -1,5 +1,5 @@
 {
-  "name": "sphinx_rtd_theme",
+  "name": "sphinx_radiac_theme",
   "main": "js/theme.js",
   "version": "1.0.1alpha1",
   "scripts": {
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/readthedocs/sphinx_rtd_theme.git"
+    "url": "https://github.com/radiac/sphinx_radiac_theme.git"
   },
   "author": "Read the Docs",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/readthedocs/sphinx_rtd_theme/issues"
+    "url": "https://github.com/radiac/sphinx_radiac_theme/issues"
   },
-  "homepage": "https://github.com/readthedocs/sphinx_rtd_theme",
+  "homepage": "https://github.com/radiac/sphinx_radiac_theme",
   "dependencies": {},
   "devDependencies": {
     "bourbon": "~4.3",
