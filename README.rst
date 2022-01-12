@@ -29,9 +29,10 @@ Add to ``conf.py``::
 Optional settings for ``conf.py``::
 
     html_theme_options = {
-      "radiac_project": "projectname",
-      "radiac_options": [
-
+      "radiac_project_slug": "projectslug",
+      "radiac_project_name": "project name",
+      "radiac_subsite_links": [
+        ('https://radiac.net/projects/projectslug/demo/', 'Demo'),
       ],
     }
 
@@ -48,6 +49,7 @@ Developing
 
       nvm install
       nvm use
+      npm install
       npm run dev
 
 The upstream project does not currently use black, so take care to not apply
@@ -91,6 +93,8 @@ Merging from upstream
       ``sphinx_radiac_theme``
     * ``src/sass/theme.sass`` - make sure ``theme_variables`` is followed by
       ``radiac_variables`` and ``radiac_styles`` is at the bottom
+    * Updated ``sphinx_radiac/theme/layout.html`` from ``sphinx_rtd_theme``, copying
+      across the ``radiac_title`` and ``radiac_nav`` blocks
     * ``sphinx_rtd_theme/*`` - move files over to ``sphinx_radiac_theme``
 
     Test with::

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import sys
 import os
 import re
+import sys
 
 # Prefer to use the version of the theme in this repo
 # and not the installed version of the theme.
@@ -10,15 +10,15 @@ sys.path.insert(0, os.path.abspath('..'))
 sys.path.append(os.path.abspath('./demo/'))
 
 import sphinx_radiac_theme
+from sphinx.locale import _
 from sphinx_radiac_theme import __version__ as theme_version
 from sphinx_radiac_theme import __version_full__ as theme_version_full
-from sphinx.locale import _
 
-project = u'Read the Docs Sphinx Theme'
+project = u'Radiac.net Sphinx Theme'
 slug = re.sub(r'\W+', '-', project.lower())
 version = theme_version
 release = theme_version_full
-author = u'Dave Snider, Read the Docs, Inc. & contributors'
+author = u'Richard Terry (originally Dave Snider, Read the Docs, Inc. & contributors)'
 copyright = author
 language = 'en'
 
@@ -48,7 +48,12 @@ intersphinx_mapping = {
 
 html_theme = 'sphinx_radiac_theme'
 html_theme_options = {
-    'logo_only': True,
+    "radiac_project_slug": "django-tagulous",
+    "radiac_project_name": "Django Tagulous",
+    "radiac_subsite_links": [
+        ("https://radiac.net/projects/django-tagulous/demo/", "Demo"),
+    ],
+    'logo_only': False,
     'navigation_depth': 5,
 }
 html_context = {}

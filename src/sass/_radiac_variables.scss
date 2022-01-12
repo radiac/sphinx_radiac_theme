@@ -1,0 +1,13 @@
+// Override theme_variables
+
+$white: #fff;
+$white_pale: #ddd9d0;  // Text on dark background
+$blue: #5080c0;  // Title bar, body titles
+$grey: #5a5a5a;    // Sidebar
+
+$class-color:                         $blue;
+$guilabel-color:                      $blue;
+
+$nav-search-background-color:         $blue;
+$nav-link-color:                      $blue;
+$nav-caption:                         lighten($blue, 15%);
