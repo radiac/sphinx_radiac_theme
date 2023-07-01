@@ -1,7 +1,7 @@
 $white: #fff;
-$white_pale: #ddd9d0;  // Text on dark background
-$blue: #5080c0;  // Title bar, body titles
-$grey: #5a5a5a;    // Sidebar
+$white_pale: #ddd9d0; // Text on dark background
+$blue: #5080c0; // Title bar, body titles
+$grey: #5a5a5a; // Sidebar
 
 $breadcrumb_font-size: 0.8rem;
 
@@ -34,12 +34,14 @@ $sidebar-width: 300px;
   top: 0;
   height: $breadcrumb_height;
   z-index: 1000;
+  overflow-x: scroll;
+  overflow-y: hidden;
 
-  & > ul {
-    overflow: hidden;
+  &>ul {
+    white-space: nowrap;
 
-    & > li {
-      float:  left;
+    &>li {
+      display: inline-block;
 
       a,
       span {
@@ -61,7 +63,7 @@ $sidebar-width: 300px;
         li {
           display: inline-block;
           margin: 0;
-          padding:0;
+          padding: 0;
 
           &:first-child {
             padding: 0 0 0 $gap;
@@ -80,12 +82,13 @@ $sidebar-width: 300px;
         background: $blue;
       }
 
-      &:first-child > a {
+      &:first-child>a {
         padding-left: $el_padding;
         padding-right: ($el_padding - $breadcrumb_arrow_width);
       }
 
-      & > a {
+      &>a {
+
         &:after,
         &:before {
           content: " ";
@@ -125,6 +128,8 @@ $sidebar-width: 300px;
 
 .radiac-sidebar-title {
   margin-top: $breadcrumb_height;
+  background: $grey;
+  border-top: 2px solid $white;
 
   h1 {
     flex: 0 0 auto;
@@ -133,29 +138,21 @@ $sidebar-width: 300px;
     text-align: center;
 
     a {
+      display: block;
+      line-height: 3rem;
+      padding: 0.5rem $el_padding;
+      word-wrap: break-word;
       background: $blue;
       color: $white;
     }
   }
 }
 
-.radiac-sidebar-title {
-  background: $grey;
-  border-top: 2px solid $white;
-
-  a {
-    display: block;
-    line-height: 3rem;
-    padding: 0.5rem $el_padding;
-    word-wrap: break-word;
-  }
-}
-
-
 .wy-side-nav-search {
   a:first-child {
     display: none;
   }
+
   div.version {
     margin-top: 0;
   }

@@ -7,7 +7,7 @@ from io import open
 
 from setuptools import setup
 
-fork_version_suffix = ".fork1"
+fork_version_suffix = ".fork2"
 
 
 class WebpackBuildCommand(distutils.cmd.Command):
