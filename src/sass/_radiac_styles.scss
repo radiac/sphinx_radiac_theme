@@ -133,7 +133,11 @@ $sidebar-width: 300px;
 
   h1 {
     flex: 0 0 auto;
-    width: auto;
+
+    @media (min-width: $tablet) {
+      width: $sidebar-width;
+    }
+
     margin: 0;
     text-align: center;
 
