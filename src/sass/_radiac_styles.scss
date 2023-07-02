@@ -132,14 +132,13 @@ $sidebar-width: 300px;
   border-top: 2px solid $white;
 
   h1 {
-    flex: 0 0 auto;
-
-    @media (min-width: $tablet) {
-      width: $sidebar-width;
-    }
-
     margin: 0;
     text-align: center;
+    width: $sidebar-width;
+
+    @media screen and (max-width:768px) {
+      width: auto;
+    }
 
     a {
       background: $blue;
