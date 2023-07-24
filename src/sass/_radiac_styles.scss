@@ -168,3 +168,11 @@ $sidebar-width: 300px;
 .wy-nav-top {
   background: $blue;
 }
+
+.rst-content {
+
+  .note,
+  .seealso {
+    background: lighten($blue, 42%);
+  }
+}

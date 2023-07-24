@@ -7,8 +7,6 @@ from io import open
 
 from setuptools import setup
 
-fork_version_suffix = ".fork2"
-
 
 class WebpackBuildCommand(distutils.cmd.Command):
 
@@ -96,7 +94,7 @@ class TransifexCommand(distutils.cmd.Command):
 
 setup(
     name="sphinx_radiac_theme",
-    version=f"1.0.1alpha1{fork_version_suffix}",
+    version="1.1.0",
     url="https://github.com/radiac/sphinx_radiac_theme",
     license="MIT",
     description="Radiac.net theme for Sphinx",
